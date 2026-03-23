@@ -1,11 +1,19 @@
 import { useState, useMemo } from "react";
-import { useParams, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { StatusBadge } from "@/components/StatusBadge";
 import { Badge } from "@/components/ui/badge";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import {
@@ -15,7 +23,7 @@ import {
   Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription,
 } from "@/components/ui/sheet";
 import {
-  ArrowLeft, Building2, Hospital, Users, UserCog, Send, AlertTriangle, Mail,
+  Building2, Hospital, Users, UserCog, Send, AlertTriangle, Mail,
   RotateCcw, Ban, Eye, Search, ArrowUpDown, ArrowUp, ArrowDown, UserPlus, Pencil,
   MapPin, Power, Info,
 } from "lucide-react";
@@ -124,9 +132,19 @@ export default function OrganizationDetailPage() {
 
   return (
     <div className="p-6 lg:p-8 max-w-5xl space-y-6">
-      <button onClick={() => navigate("/organizations")} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-        <ArrowLeft className="h-4 w-4" /> Back to Organizations
-      </button>
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/organizations">Organizations</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>{org.name}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
 
       {status === "invitation_sent" && (
         <div className="flex items-center gap-3 rounded-lg border border-warning/30 bg-warning/5 p-4">
@@ -184,7 +202,7 @@ export default function OrganizationDetailPage() {
             <div className="rounded-lg bg-primary/10 p-2"><UserCog className="h-4 w-4 text-primary" /></div>
             <div>
               <p className="text-2xl font-semibold">{org.adminCount}</p>
-              <p className="text-xs text-muted-foreground">Admins</p>
+              <p className="text-xs text-muted-foreground">Facility Admins</p>
             </div>
           </div>
         </Card>
@@ -311,13 +329,14 @@ export default function OrganizationDetailPage() {
                 </button>
               </TableHead>
               <TableHead className="text-center">Total Providers</TableHead>
+              <TableHead>Created At</TableHead>
               <TableHead className="w-[80px]">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {filteredFacilities.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">No facilities found</TableCell>
+                <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">No facilities found</TableCell>
               </TableRow>
             ) : (
               filteredFacilities.map((fac) => (
@@ -337,6 +356,7 @@ export default function OrganizationDetailPage() {
                   </TableCell>
                   <TableCell className="text-center font-medium">{fac.activeProviderCount}</TableCell>
                   <TableCell className="text-center text-muted-foreground">{fac.providerCount}</TableCell>
+                  <TableCell className="text-muted-foreground">{fac.createdAt}</TableCell>
                   <TableCell>
                     <Button variant="ghost" size="icon" className="h-8 w-8" onClick={(e) => { e.stopPropagation(); navigate(`/organizations/${org.id}/facilities/${fac.id}`); }}>
                       <Eye className="h-4 w-4" />

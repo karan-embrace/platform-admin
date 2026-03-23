@@ -197,43 +197,43 @@ export const mockOrganizations: Organization[] = [
 
 export const mockFacilities: Facility[] = [
   // Summit Health Systems
-  { id: "fac-001", orgId: "org-001", name: "Summit Main Hospital", status: "active", providerCount: 45, activeProviderCount: 42, createdAt: "2024-08-15" },
-  { id: "fac-002", orgId: "org-001", name: "Summit East Wing Clinic", status: "active", providerCount: 28, activeProviderCount: 25, createdAt: "2024-08-20" },
-  { id: "fac-003", orgId: "org-001", name: "Summit Urgent Care Center", status: "active", providerCount: 18, activeProviderCount: 16, createdAt: "2024-09-01" },
-  { id: "fac-004", orgId: "org-001", name: "Summit Rehabilitation Center", status: "disabled", providerCount: 15, activeProviderCount: 0, createdAt: "2024-09-15" },
-  { id: "fac-005", orgId: "org-001", name: "Default Facility", status: "active", providerCount: 8, activeProviderCount: 8, createdAt: "2024-08-15" },
+  { id: "fac-001", orgId: "org-001", name: "Summit Main Hospital", status: "active", providerCount: 45, activeProviderCount: 42, createdAt: "2024-08-15", primaryAdmin: { name: "Olivia Carter", email: "olivia.carter@summithealth.com" } },
+  { id: "fac-002", orgId: "org-001", name: "Summit East Wing Clinic", status: "active", providerCount: 28, activeProviderCount: 25, createdAt: "2024-08-20", primaryAdmin: { name: "Ethan Brooks", email: "ethan.brooks@summithealth.com" } },
+  { id: "fac-003", orgId: "org-001", name: "Summit Urgent Care Center", status: "active", providerCount: 18, activeProviderCount: 16, createdAt: "2024-09-01", primaryAdmin: { name: "Mia Ramirez", email: "mia.ramirez@summithealth.com" } },
+  { id: "fac-004", orgId: "org-001", name: "Summit Rehabilitation Center", status: "disabled", providerCount: 15, activeProviderCount: 0, createdAt: "2024-09-15", primaryAdmin: { name: "Noah Bennett", email: "noah.bennett@summithealth.com" } },
+  { id: "fac-005", orgId: "org-001", name: "Default Facility", status: "active", providerCount: 8, activeProviderCount: 8, createdAt: "2024-08-15", primaryAdmin: { name: "Ava Morgan", email: "ava.morgan@summithealth.com" } },
   // Pacific Coast Medical Group
-  { id: "fac-006", orgId: "org-002", name: "Pacific Coast Downtown", status: "active", providerCount: 32, activeProviderCount: 30, createdAt: "2024-09-22" },
-  { id: "fac-007", orgId: "org-002", name: "Pacific Coast North", status: "active", providerCount: 22, activeProviderCount: 20, createdAt: "2024-10-01" },
-  { id: "fac-008", orgId: "org-002", name: "Default Facility", status: "active", providerCount: 12, activeProviderCount: 10, createdAt: "2024-09-22" },
+  { id: "fac-006", orgId: "org-002", name: "Pacific Coast Downtown", status: "active", providerCount: 32, activeProviderCount: 30, createdAt: "2024-09-22", primaryAdmin: { name: "Liam Nguyen", email: "liam.nguyen@pacificcoastmedical.com" } },
+  { id: "fac-007", orgId: "org-002", name: "Pacific Coast North", status: "active", providerCount: 22, activeProviderCount: 20, createdAt: "2024-10-01", primaryAdmin: { name: "Sophia Kim", email: "sophia.kim@pacificcoastmedical.com" } },
+  { id: "fac-008", orgId: "org-002", name: "Default Facility", status: "active", providerCount: 12, activeProviderCount: 10, createdAt: "2024-09-22", primaryAdmin: { name: "James Wilson", email: "james.wilson@pacificcoastmedical.com" } },
   // Coastal Wellness Network
-  { id: "fac-009", orgId: "org-005", name: "Coastal Beach Clinic", status: "active", providerCount: 18, activeProviderCount: 16, createdAt: "2024-11-05" },
-  { id: "fac-010", orgId: "org-005", name: "Default Facility", status: "active", providerCount: 10, activeProviderCount: 9, createdAt: "2024-11-05" },
+  { id: "fac-009", orgId: "org-005", name: "Coastal Beach Clinic", status: "active", providerCount: 18, activeProviderCount: 16, createdAt: "2024-11-05", primaryAdmin: { name: "Charlotte Adams", email: "charlotte.adams@coastalwellness.com" } },
+  { id: "fac-010", orgId: "org-005", name: "Default Facility", status: "active", providerCount: 10, activeProviderCount: 9, createdAt: "2024-11-05", primaryAdmin: { name: "Benjamin Diaz", email: "benjamin.diaz@coastalwellness.com" } },
   // Meridian Healthcare
-  { id: "fac-011", orgId: "org-004", name: "Meridian Central", status: "disabled", providerCount: 50, activeProviderCount: 0, createdAt: "2024-06-01" },
-  { id: "fac-012", orgId: "org-004", name: "Default Facility", status: "disabled", providerCount: 20, activeProviderCount: 0, createdAt: "2024-06-01" },
+  { id: "fac-011", orgId: "org-004", name: "Meridian Central", status: "disabled", providerCount: 50, activeProviderCount: 0, createdAt: "2024-06-01", primaryAdmin: { name: "Harper Jones", email: "harper.jones@meridianhealthcare.com" } },
+  { id: "fac-012", orgId: "org-004", name: "Default Facility", status: "disabled", providerCount: 20, activeProviderCount: 0, createdAt: "2024-06-01", primaryAdmin: { name: "Lucas Reed", email: "lucas.reed@meridianhealthcare.com" } },
   // Northern Valley
-  { id: "fac-013", orgId: "org-003", name: "Default Facility", status: "disabled", providerCount: 0, activeProviderCount: 0, createdAt: "2025-03-10" },
+  { id: "fac-013", orgId: "org-003", name: "Default Facility", status: "disabled", providerCount: 0, activeProviderCount: 0, createdAt: "2025-03-10", primaryAdmin: { name: "Amelia Scott", email: "amelia.scott@northernvalleyclinic.com" } },
   // Alpine Medical
-  { id: "fac-014", orgId: "org-006", name: "Default Facility", status: "disabled", providerCount: 0, activeProviderCount: 0, createdAt: "2025-03-15" },
+  { id: "fac-014", orgId: "org-006", name: "Default Facility", status: "disabled", providerCount: 0, activeProviderCount: 0, createdAt: "2025-03-15", primaryAdmin: { name: "Henry Price", email: "henry.price@alpinemedical.com" } },
   // Great Plains
-  { id: "fac-015", orgId: "org-007", name: "Great Plains Main", status: "active", providerCount: 40, activeProviderCount: 36, createdAt: "2024-07-20" },
-  { id: "fac-016", orgId: "org-007", name: "Great Plains West", status: "active", providerCount: 30, activeProviderCount: 26, createdAt: "2024-08-01" },
-  { id: "fac-017", orgId: "org-007", name: "Default Facility", status: "active", providerCount: 15, activeProviderCount: 12, createdAt: "2024-07-20" },
+  { id: "fac-015", orgId: "org-007", name: "Great Plains Main", status: "active", providerCount: 40, activeProviderCount: 36, createdAt: "2024-07-20", primaryAdmin: { name: "Ella Foster", email: "ella.foster@greatplainshealth.com" } },
+  { id: "fac-016", orgId: "org-007", name: "Great Plains West", status: "active", providerCount: 30, activeProviderCount: 26, createdAt: "2024-08-01", primaryAdmin: { name: "Daniel Cooper", email: "daniel.cooper@greatplainshealth.com" } },
+  { id: "fac-017", orgId: "org-007", name: "Default Facility", status: "active", providerCount: 15, activeProviderCount: 12, createdAt: "2024-07-20", primaryAdmin: { name: "Grace Peterson", email: "grace.peterson@greatplainshealth.com" } },
   // Sunbelt
-  { id: "fac-018", orgId: "org-008", name: "Sunbelt Central", status: "active", providerCount: 30, activeProviderCount: 28, createdAt: "2024-10-12" },
-  { id: "fac-019", orgId: "org-008", name: "Default Facility", status: "active", providerCount: 15, activeProviderCount: 13, createdAt: "2024-10-12" },
+  { id: "fac-018", orgId: "org-008", name: "Sunbelt Central", status: "active", providerCount: 30, activeProviderCount: 28, createdAt: "2024-10-12", primaryAdmin: { name: "Samuel Flores", email: "samuel.flores@sunbeltmedical.com" } },
+  { id: "fac-019", orgId: "org-008", name: "Default Facility", status: "active", providerCount: 15, activeProviderCount: 13, createdAt: "2024-10-12", primaryAdmin: { name: "Chloe Bryant", email: "chloe.bryant@sunbeltmedical.com" } },
   // Lakeview
-  { id: "fac-020", orgId: "org-009", name: "Lakeview Main", status: "active", providerCount: 18, activeProviderCount: 16, createdAt: "2024-12-01" },
-  { id: "fac-021", orgId: "org-009", name: "Default Facility", status: "active", providerCount: 10, activeProviderCount: 9, createdAt: "2024-12-01" },
+  { id: "fac-020", orgId: "org-009", name: "Lakeview Main", status: "active", providerCount: 18, activeProviderCount: 16, createdAt: "2024-12-01", primaryAdmin: { name: "Jack Turner", email: "jack.turner@lakeviewhealth.com" } },
+  { id: "fac-021", orgId: "org-009", name: "Default Facility", status: "active", providerCount: 10, activeProviderCount: 9, createdAt: "2024-12-01", primaryAdmin: { name: "Nora Hughes", email: "nora.hughes@lakeviewhealth.com" } },
   // Redwood
-  { id: "fac-022", orgId: "org-010", name: "Redwood Main", status: "disabled", providerCount: 12, activeProviderCount: 0, createdAt: "2024-05-15" },
-  { id: "fac-023", orgId: "org-010", name: "Default Facility", status: "disabled", providerCount: 6, activeProviderCount: 0, createdAt: "2024-05-15" },
+  { id: "fac-022", orgId: "org-010", name: "Redwood Main", status: "disabled", providerCount: 12, activeProviderCount: 0, createdAt: "2024-05-15", primaryAdmin: { name: "Leo Coleman", email: "leo.coleman@redwoodclinic.com" } },
+  { id: "fac-023", orgId: "org-010", name: "Default Facility", status: "disabled", providerCount: 6, activeProviderCount: 0, createdAt: "2024-05-15", primaryAdmin: { name: "Zoe Sanders", email: "zoe.sanders@redwoodclinic.com" } },
   // Bayshore
-  { id: "fac-024", orgId: "org-011", name: "Bayshore Main", status: "active", providerCount: 18, activeProviderCount: 16, createdAt: "2025-01-10" },
-  { id: "fac-025", orgId: "org-011", name: "Default Facility", status: "active", providerCount: 8, activeProviderCount: 7, createdAt: "2025-01-10" },
+  { id: "fac-024", orgId: "org-011", name: "Bayshore Main", status: "active", providerCount: 18, activeProviderCount: 16, createdAt: "2025-01-10", primaryAdmin: { name: "Mason Simmons", email: "mason.simmons@bayshorepediatrics.com" } },
+  { id: "fac-025", orgId: "org-011", name: "Default Facility", status: "active", providerCount: 8, activeProviderCount: 7, createdAt: "2025-01-10", primaryAdmin: { name: "Lily Ross", email: "lily.ross@bayshorepediatrics.com" } },
   // Mountain View
-  { id: "fac-026", orgId: "org-012", name: "Default Facility", status: "disabled", providerCount: 0, activeProviderCount: 0, createdAt: "2025-03-18" },
+  { id: "fac-026", orgId: "org-012", name: "Default Facility", status: "disabled", providerCount: 0, activeProviderCount: 0, createdAt: "2025-03-18", primaryAdmin: { name: "Owen Perry", email: "owen.perry@mountainviewortho.com" } },
 ];
 
 export const mockProviders: Provider[] = [

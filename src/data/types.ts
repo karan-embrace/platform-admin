@@ -34,6 +34,10 @@ export interface Facility {
   providerCount: number;
   activeProviderCount: number;
   createdAt: string;
+  primaryAdmin: {
+    name: string;
+    email: string;
+  };
 }
 
 export interface Provider {

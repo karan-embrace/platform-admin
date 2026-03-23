@@ -107,136 +107,155 @@ export default function OrganizationsPage() {
         </Button>
       </div>
 
-      {/* 3 Large Grouped KPI Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {/* Top Summary Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
         {/* Organizations Card */}
         <Card className="p-5">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="rounded-lg bg-primary/10 p-2.5">
-              <Building2 className="h-5 w-5 text-primary" />
+          <div className="flex items-start justify-between gap-3">
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="rounded-lg bg-primary/10 p-2.5">
+                <Building2 className="h-5 w-5 text-primary" />
+              </div>
+              <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Organizations</h3>
             </div>
-            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Organizations</h3>
+            <div className="text-right shrink-0">
+              <p className="text-4xl font-bold tracking-tight leading-none">{orgs.length}</p>
+              <p className="text-xs text-muted-foreground mt-1">Total</p>
+            </div>
           </div>
-          <p className="text-4xl font-bold tracking-tight">{orgs.length}</p>
-          <p className="text-xs text-muted-foreground mt-1 mb-4">Total</p>
-          <div className="grid grid-cols-2 gap-3 pt-3 border-t">
+          <div className="grid grid-cols-2 gap-3 pt-3 mt-3 border-t">
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-success" />
               <span className="text-xs text-muted-foreground">Active</span>
-              <span className="text-sm font-semibold ml-auto">{active}</span>
+              <span className="text-sm font-semibold ml-1">{active}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-destructive" />
               <span className="text-xs text-muted-foreground">Disabled</span>
-              <span className="text-sm font-semibold ml-auto">{disabled}</span>
+              <span className="text-sm font-semibold ml-1">{disabled}</span>
             </div>
           </div>
         </Card>
 
         {/* Facilities Card */}
         <Card className="p-5">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="rounded-lg bg-primary/10 p-2.5">
-              <Hospital className="h-5 w-5 text-primary" />
+          <div className="flex items-start justify-between gap-3">
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="rounded-lg bg-primary/10 p-2.5">
+                <Hospital className="h-5 w-5 text-primary" />
+              </div>
+              <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Facilities</h3>
             </div>
-            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Facilities</h3>
+            <div className="text-right shrink-0">
+              <p className="text-4xl font-bold tracking-tight leading-none">{totalFacilities}</p>
+              <p className="text-xs text-muted-foreground mt-1">Total</p>
+            </div>
           </div>
-          <p className="text-4xl font-bold tracking-tight">{totalFacilities}</p>
-          <p className="text-xs text-muted-foreground mt-1 mb-4">Total</p>
-          <div className="grid grid-cols-2 gap-3 pt-3 border-t">
+          <div className="grid grid-cols-2 gap-3 pt-3 mt-3 border-t">
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-success" />
               <span className="text-xs text-muted-foreground">Active</span>
-              <span className="text-sm font-semibold ml-auto">{activeFacilities}</span>
+              <span className="text-sm font-semibold ml-1">{activeFacilities}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-destructive" />
               <span className="text-xs text-muted-foreground">Disabled</span>
-              <span className="text-sm font-semibold ml-auto">{disabledFacilities}</span>
+              <span className="text-sm font-semibold ml-1">{disabledFacilities}</span>
             </div>
           </div>
         </Card>
 
         {/* Providers Card */}
         <Card className="p-5">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="rounded-lg bg-primary/10 p-2.5">
-              <Users className="h-5 w-5 text-primary" />
+          <div className="flex items-start justify-between gap-3">
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="rounded-lg bg-primary/10 p-2.5">
+                <Users className="h-5 w-5 text-primary" />
+              </div>
+              <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Providers</h3>
             </div>
-            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Providers</h3>
+            <div className="text-right shrink-0">
+              <p className="text-4xl font-bold tracking-tight leading-none">{totalProviders}</p>
+              <p className="text-xs text-muted-foreground mt-1">Total</p>
+            </div>
           </div>
-          <p className="text-4xl font-bold tracking-tight">{totalProviders}</p>
-          <p className="text-xs text-muted-foreground mt-1 mb-4">Total</p>
-          <div className="grid grid-cols-2 gap-3 pt-3 border-t">
+          <div className="grid grid-cols-2 gap-3 pt-3 mt-3 border-t">
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-success" />
               <span className="text-xs text-muted-foreground">Active</span>
-              <span className="text-sm font-semibold ml-auto">{activeProviders}</span>
+              <span className="text-sm font-semibold ml-1">{activeProviders}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-destructive" />
               <span className="text-xs text-muted-foreground">Inactive</span>
-              <span className="text-sm font-semibold ml-auto">{disabledProviders}</span>
+              <span className="text-sm font-semibold ml-1">{disabledProviders}</span>
+            </div>
+          </div>
+        </Card>
+
+        {/* Status Distribution Card */}
+        <Card className="p-5">
+          <div className="flex items-center justify-between gap-3">
+            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Status Distribution</h3>
+            <p className="text-xs text-muted-foreground">{orgs.length} Total</p>
+          </div>
+          <div className="mt-3 flex items-center gap-4">
+            <div className="h-24 w-24 shrink-0">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie data={chartData} innerRadius={26} outerRadius={40} dataKey="value" paddingAngle={2} strokeWidth={0}>
+                    {chartData.map((entry, i) => (
+                      <Cell key={i} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip formatter={(value: number, name: string) => [value, name]} />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="flex-1 space-y-1.5">
+              {chartData.map((d) => (
+                <div key={d.name} className="flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: d.color }} />
+                    <span className="text-muted-foreground truncate">{d.name}</span>
+                  </div>
+                  <span className="font-semibold">{d.value}</span>
+                </div>
+              ))}
             </div>
           </div>
         </Card>
       </div>
 
-      <div className="grid grid-cols-1 xl:grid-cols-4 gap-6">
-        <Card className="p-5 xl:col-span-1">
-          <h3 className="text-sm font-semibold mb-4">Status Distribution</h3>
-          <ResponsiveContainer width="100%" height={180}>
-            <PieChart>
-              <Pie data={chartData} innerRadius={50} outerRadius={75} dataKey="value" paddingAngle={3} strokeWidth={0}>
-                {chartData.map((entry, i) => (
-                  <Cell key={i} fill={entry.color} />
-                ))}
-              </Pie>
-              <Tooltip formatter={(value: number, name: string) => [value, name]} />
-            </PieChart>
-          </ResponsiveContainer>
-          <div className="space-y-2 mt-2">
-            {chartData.map((d) => (
-              <div key={d.name} className="flex items-center justify-between text-xs">
-                <div className="flex items-center gap-2">
-                  <div className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: d.color }} />
-                  <span className="text-muted-foreground">{d.name}</span>
-                </div>
-                <span className="font-medium">{d.value}</span>
-              </div>
-            ))}
+      <Card className="overflow-hidden">
+        <div className="p-4 border-b flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              placeholder="Search organizations..."
+              value={search}
+              onChange={(e) => { setSearch(e.target.value); setPage(1); }}
+              className="pl-9"
+            />
           </div>
-        </Card>
-
-        <Card className="xl:col-span-3 overflow-hidden">
-          <div className="p-4 border-b flex flex-col sm:flex-row gap-3 items-start sm:items-center">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input
-                placeholder="Search organizations..."
-                value={search}
-                onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-                className="pl-9"
-              />
-            </div>
-            <Select value={statusFilter} onValueChange={(v) => { setStatusFilter(v); setPage(1); }}>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Filter by status" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Statuses</SelectItem>
-                <SelectItem value="active">Active</SelectItem>
-                <SelectItem value="disabled">Disabled</SelectItem>
-                <SelectItem value="invitation_sent">Invitation Sent</SelectItem>
-              </SelectContent>
-            </Select>
-            {hasFilters && (
-              <Button variant="ghost" size="sm" onClick={clearFilters} className="text-xs">
-                Clear Filters
-              </Button>
-            )}
-          </div>
-          <Table>
+          <Select value={statusFilter} onValueChange={(v) => { setStatusFilter(v); setPage(1); }}>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Filter by status" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Statuses</SelectItem>
+              <SelectItem value="active">Active</SelectItem>
+              <SelectItem value="disabled">Disabled</SelectItem>
+              <SelectItem value="invitation_sent">Invitation Sent</SelectItem>
+            </SelectContent>
+          </Select>
+          {hasFilters && (
+            <Button variant="ghost" size="sm" onClick={clearFilters} className="text-xs">
+              Clear Filters
+            </Button>
+          )}
+        </div>
+        <Table>
             <TableHeader>
               <TableRow>
                 <TableHead>
@@ -352,8 +371,7 @@ export default function OrganizationsPage() {
               <Button variant="outline" size="sm" disabled={page >= totalPages} onClick={() => setPage(page + 1)}>Next</Button>
             </div>
           </div>
-        </Card>
-      </div>
+      </Card>
     </div>
   );
 }

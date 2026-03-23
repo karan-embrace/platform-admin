@@ -1,12 +1,19 @@
 import { useState, useMemo } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { ArrowLeft, Hospital, Users, Search, ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react";
+import { ArrowLeft, Hospital, Users, Search, ArrowUpDown, ArrowUp, ArrowDown, UserCog } from "lucide-react";
 import { mockOrganizations, mockFacilities, mockProviders } from "@/data/mockData";
 
 type ProvSortKey = "name" | "status" | "specialty";
@@ -62,9 +69,25 @@ export default function FacilityDetailPage() {
 
   return (
     <div className="p-6 lg:p-8 max-w-5xl space-y-6">
-      <button onClick={() => navigate(`/organizations/${org.id}`)} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-        <ArrowLeft className="h-4 w-4" /> Back to {org.name}
-      </button>
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/organizations">Organizations</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to={`/organizations/${org.id}`}>{org.name}</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>{facility.name}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
 
       <div className="flex items-center gap-4">
         <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -81,7 +104,7 @@ export default function FacilityDetailPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card className="p-5">
           <div className="flex items-center gap-3">
             <div className="rounded-lg bg-primary/10 p-2"><Users className="h-4 w-4 text-primary" /></div>
@@ -97,6 +120,16 @@ export default function FacilityDetailPage() {
             <div>
               <p className="text-2xl font-semibold">{facility.status === "active" ? "Active" : "Disabled"}</p>
               <p className="text-xs text-muted-foreground">Facility Status</p>
+            </div>
+          </div>
+        </Card>
+        <Card className="p-5">
+          <div className="flex items-center gap-3">
+            <div className="rounded-lg bg-primary/10 p-2"><UserCog className="h-4 w-4 text-primary" /></div>
+            <div className="min-w-0">
+              <p className="text-base font-semibold truncate">{facility.primaryAdmin.name}</p>
+              <p className="text-xs text-muted-foreground truncate">{facility.primaryAdmin.email}</p>
+              <p className="text-xs text-muted-foreground mt-1">Primary Facility Admin</p>
             </div>
           </div>
         </Card>
