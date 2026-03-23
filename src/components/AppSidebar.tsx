@@ -23,7 +23,7 @@ export function AppSidebar() {
   const location = useLocation();
 
   return (
-    <aside className="sidebar-gradient flex h-screen w-64 flex-col border-r border-sidebar-border shrink-0">
+    <aside className="sidebar-gradient flex h-full w-64 flex-col border-r border-sidebar-border shrink-0">
       {/* Brand */}
       <div className="flex items-center gap-3 px-6 py-5 border-b border-sidebar-border">
         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sidebar-primary">

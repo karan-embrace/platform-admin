@@ -52,6 +52,7 @@ export default function CreateOrganizationPage() {
     name: "",
     email: "",
     phone: "",
+    website: "",
     type: "",
     country: "United States",
     street: "",
@@ -198,6 +199,16 @@ export default function CreateOrganizationPage() {
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) e.email = "Enter a valid email address";
     if (!form.phone.trim()) e.phone = "Phone number is required";
     else if (form.phone.replace(/\D/g, "").length !== 10) e.phone = "Phone number must be 10 digits";
+    if (form.website.trim()) {
+      try {
+        const websiteUrl = new URL(form.website.trim());
+        if (!["http:", "https:"].includes(websiteUrl.protocol)) {
+          e.website = "Website must start with http:// or https://";
+        }
+      } catch {
+        e.website = "Enter a valid website URL";
+      }
+    }
     if (!form.type) e.type = "Organization type is required";
     if (!form.country) e.country = "Country is required";
     if (!form.street.trim()) e.street = "Street is required";
@@ -302,22 +313,32 @@ export default function CreateOrganizationPage() {
                 {errors.type && <p className="text-xs text-destructive">{errors.type}</p>}
               </div>
               <div className="space-y-2">
-                <Label>Country *</Label>
-                <Select value={form.country} onValueChange={(v) => update("country", v)}>
-                  <SelectTrigger><SelectValue placeholder="Select country" /></SelectTrigger>
-                  <SelectContent>
-                    {countries.map((c) => <SelectItem key={c} value={c}>{c}</SelectItem>)}
-                  </SelectContent>
-                </Select>
-                {errors.country && <p className="text-xs text-destructive">{errors.country}</p>}
+                <Label>Website</Label>
+                <Input
+                  type="text"
+                  placeholder="https://www.example.com"
+                  value={form.website}
+                  onChange={(e) => update("website", e.target.value)}
+                />
+                {errors.website && <p className="text-xs text-destructive">{errors.website}</p>}
               </div>
             </div>
           </CardContent>
         </Card>
 
         <Card>
-          <CardHeader><CardTitle className="text-base">Address (US)</CardTitle></CardHeader>
+          <CardHeader><CardTitle className="text-base">Address</CardTitle></CardHeader>
           <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <Label>Country *</Label>
+              <Select value={form.country} onValueChange={(v) => update("country", v)}>
+                <SelectTrigger><SelectValue placeholder="Select country" /></SelectTrigger>
+                <SelectContent>
+                  {countries.map((c) => <SelectItem key={c} value={c}>{c}</SelectItem>)}
+                </SelectContent>
+              </Select>
+              {errors.country && <p className="text-xs text-destructive">{errors.country}</p>}
+            </div>
             <div className="space-y-2">
               <Label>Street *</Label>
               <Input placeholder="Street address" value={form.street} onChange={(e) => update("street", e.target.value)} />

@@ -374,7 +374,7 @@ export default function OrganizationDetailPage() {
         <SheetContent className="w-[400px] sm:w-[440px]">
           <SheetHeader>
             <SheetTitle>Organization Details</SheetTitle>
-            <SheetDescription>{org.name}</SheetDescription>
+            <SheetDescription>Name: {org.name}</SheetDescription>
           </SheetHeader>
           <div className="mt-6 space-y-6">
             {/* Address */}
