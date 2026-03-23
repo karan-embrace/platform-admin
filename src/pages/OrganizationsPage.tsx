@@ -100,7 +100,7 @@ export default function OrganizationsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight">Organizations</h1>
-          <p className="text-sm text-muted-foreground mt-1">Manage platform tenants and onboarding</p>
+          <p className="text-sm text-muted-foreground mt-1">Manage platform organizations and onboarding</p>
         </div>
         <Button onClick={() => navigate("/organizations/create")}>
           <Plus className="mr-2 h-4 w-4" /> Create Organization
