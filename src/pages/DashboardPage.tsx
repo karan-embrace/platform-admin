@@ -149,7 +149,7 @@ export default function DashboardPage() {
   return (
     <div className="p-6 lg:p-8 space-y-6 max-w-[1400px]">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Usage & Cost</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">AI Monitoring</h1>
         <p className="text-sm text-muted-foreground mt-1">
           {filterLevel}-level usage metrics and cost breakdown
         </p>

@@ -11,7 +11,7 @@ import {
 
 const navItems = [
   { to: "/organizations", label: "Organizations", icon: Building2 },
-  { to: "/dashboard", label: "Usage & Cost", icon: LayoutDashboard },
+  { to: "/dashboard", label: "AI Monitoring", icon: LayoutDashboard },
   { to: "/audit-logs", label: "Audit Logs", icon: ScrollText },
 ];
 
